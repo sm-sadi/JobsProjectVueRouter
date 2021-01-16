@@ -23,12 +23,21 @@ export default {
   data(){
       return{
           jobs :[
-              {title : 'UX Designer' , id: 1 , detaills : "Lorem, ipsum dolor sit amet"},
-              {title : 'Frontend Developer' , id: 2 , detaills : "Lorem, ipsum dolor sit amet"},
-              {title : 'Backend Developer' , id: 2 , detaills : "Lorem, ipsum dolor sit amet"}
+              // {title : 'UX Designer' , id: 1 , detaills : "Lorem, ipsum dolor sit amet"},
+              // {title : 'Frontend Developer' , id: 2 , detaills : "Lorem, ipsum dolor sit amet"},
+              // {title : 'Backend Developer' , id: 2 , detaills : "Lorem, ipsum dolor sit amet"}
           ]
       }
-  }
+  },
+    mounted(){
+        fetch('http://localhost:3000/jobs')
+        .then( res => res.json() )
+        .then( data => this.jobs = data)
+        .catch( function(err){
+          console.log(err);
+        })
+    }
+  
 }
 </script>
 
